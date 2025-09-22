@@ -1,9 +1,11 @@
 import { drizzle } from "drizzle-orm/node-postgres";
-import { Pool, PoolClient } from "pg";
+import { Pool } from "pg";
 import { env } from "@/env";
 import * as schema from "@/db/schema";
 
 export * from "@/db/schema";
+
+export { database } from "@/db/database";
 
 // Configure connection pool optimized for serverless with transaction pooler
 const pool = new Pool({
