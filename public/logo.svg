@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg width="512" height="512" viewBox="0 0 512 512" version="1.1" id="svg1" inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)" sodipodi:docname="logo.svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview id="namedview1" pagecolor="#a2a2a2" bordercolor="#000000" borderopacity="0.25" inkscape:showpageshadow="2" inkscape:pageopacity="0.0" inkscape:pagecheckerboard="0" inkscape:deskcolor="#282828" inkscape:document-units="px" inkscape:zoom="0.82380702" inkscape:cx="596.01337" inkscape:cy="101.96563" inkscape:window-width="2460" inkscape:window-height="1360" inkscape:window-x="971" inkscape:window-y="0" inkscape:window-maximized="0" inkscape:current-layer="layer1" />
+  <defs id="defs1">
+    <linearGradient id="linearGradient2" inkscape:collect="always">
+      <stop style="stop-color:#1588ff;stop-opacity:1;" offset="0" id="stop2" />
+      <stop style="stop-color:#1588ff;stop-opacity:1;" offset="0.65447146" id="stop5" />
+      <stop style="stop-color:#0074ec;stop-opacity:1;" offset="0.65820992" id="stop6" />
+      <stop style="stop-color:#1cbea8;stop-opacity:1;" offset="0.66061527" id="stop4" />
+      <stop style="stop-color:#1cbea8;stop-opacity:1;" offset="1" id="stop3" />
+    </linearGradient>
+    <linearGradient inkscape:collect="always" xlink:href="#linearGradient2" id="linearGradient3" x1="-0.58245105" y1="0.8743304" x2="509.67004" y2="509.96072" gradientUnits="userSpaceOnUse" gradientTransform="matrix(1.0419922,0,0,1.0419922,-10.750001,-10.750008)" />
+  </defs>
+  <g inkscape:label="Layer 1" inkscape:groupmode="layer" id="layer1">
+    <path id="rect1" style="fill:url(#linearGradient3);fill-rule:evenodd;stroke-width:21.5;stroke-linecap:round;stroke-linejoin:round;stroke-dashoffset:4" d="M 80.421875 0 C 35.868303 -9.4738937e-15 0 35.868303 0 80.421875 L 0 431.57812 C -9.4738937e-15 476.1317 35.868303 512 80.421875 512 L 431.57812 512 C 476.1317 512 512 476.1317 512 431.57812 L 512 80.421875 C 512 35.868303 476.1317 0 431.57812 0 L 80.421875 0 z M 399.98633 114.76758 A 26 26 0 0 1 418.37109 122.38281 A 26 26 0 0 1 418.37109 159.15234 L 241.98242 335.54102 A 26.0026 26.0026 0 0 1 205.21289 335.54102 L 127.5332 257.86133 A 26 26 0 0 1 127.5332 221.0918 A 26 26 0 0 1 164.30273 221.0918 L 223.59766 280.38672 L 381.60156 122.38281 A 26 26 0 0 1 393.25781 115.6543 A 26 26 0 0 1 399.98633 114.76758 z " />
+  </g>
+</svg>
