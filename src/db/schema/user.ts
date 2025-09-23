@@ -1,4 +1,5 @@
 import { pgTable, text, timestamp, boolean } from "drizzle-orm/pg-core";
+import { roleEnum } from "./enums";
 
 export const user = pgTable("user", {
   id: text("id")
@@ -15,6 +16,7 @@ export const user = pgTable("user", {
     .notNull(),
   firstName: text("first_name").notNull(),
   lastName: text("last_name").notNull(),
+  role: roleEnum("role").default("user").notNull(),
 });
 
 export type User = typeof user.$inferSelect;

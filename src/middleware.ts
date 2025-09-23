@@ -14,11 +14,14 @@ export async function middleware(request: NextRequest) {
   if (isGuarded && !session) {
     return NextResponse.redirect(new URL("/", request.url));
   }
+  if (request.nextUrl.pathname === "/" && session) {
+    return NextResponse.redirect(new URL("/guarded/dashboard", request.url));
+  }
 
   return NextResponse.next();
 }
 
 export const config = {
   runtime: "nodejs",
-  matcher: ["/guarded/:path*"], // Apply middleware to specific routes
+  matcher: ["/guarded/:path*", "/"], // Apply middleware to specific routes
 };

@@ -15,6 +15,13 @@
       "when": 1758564158779,
       "tag": "0001_adorable_satana",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1758567506944,
+      "tag": "0002_absent_centennial",
+      "breakpoints": true
     }
   ]
 }

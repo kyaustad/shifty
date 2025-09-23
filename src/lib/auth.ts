@@ -23,6 +23,11 @@ export const auth = betterAuth({
         type: "string",
         input: true,
       },
+      role: {
+        required: true,
+        type: "string",
+        input: true,
+      },
     },
   },
 });

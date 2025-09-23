@@ -2,11 +2,9 @@
 
 import { useAuth } from "@/features/auth/components/auth-context";
 import { LogOutButton } from "@/components/custom/log-out-button";
-import AdminDashboard from "./admin/page";
-import ManagerDashboard from "./manager/page";
-import UserDashboard from "./user/page";
+import { redirect } from "next/navigation";
 
-export default function Dashboard() {
+export default function UserDashboard() {
   const { user, isLoading, error } = useAuth();
   if (isLoading) {
     return <div>Loading...</div>;
@@ -14,17 +12,14 @@ export default function Dashboard() {
   if (error) {
     return <div>Error: {error.message}</div>;
   }
-  if (user?.role === "user") {
-    return <UserDashboard />;
+
+  if (user?.role !== "user") {
+    redirect("/guarded/dashboard");
   }
-  if (user?.role === "manager") {
-    return <ManagerDashboard />;
-  }
-  if (user?.role === "admin") {
-    return <AdminDashboard />;
-  }
+
   return (
     <div>
+      UserDashboard {user?.firstName} {user?.lastName}
       <LogOutButton />
     </div>
   );

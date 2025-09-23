@@ -14,7 +14,12 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+} from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useState } from "react";
@@ -23,6 +28,8 @@ import { motion } from "motion/react";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { PasswordInput } from "@/components/custom/password-input";
+import { useAuth } from "./auth-context";
 
 export const AuthForms = ({ className }: { className?: string }) => {
   const [activeTab, setActiveTab] = useState("log-in");
@@ -37,7 +44,10 @@ export const AuthForms = ({ className }: { className?: string }) => {
         </CardHeader>
         <Separator className="my-4" />
         <TabsContent value="sign-up">
-          <CardContent className="w-full my-auto h-full">
+          <CardContent className="w-full my-auto h-full space-y-4">
+            <CardDescription>
+              {`Sign up as a company admin to get started managing your company's schedules. If you are an employee or manager, please contact your company admin to get access.`}
+            </CardDescription>
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -51,6 +61,7 @@ export const AuthForms = ({ className }: { className?: string }) => {
         </TabsContent>
         <TabsContent value="log-in">
           <CardContent className="w-full my-auto h-full">
+            <CardDescription></CardDescription>
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -81,6 +92,7 @@ const signUpFormSchema = z.object({
 
 export const SignUpForm = ({ className }: { className?: string }) => {
   const router = useRouter();
+  const { refresh } = useAuth();
   const form = useForm<z.infer<typeof signUpFormSchema>>({
     resolver: zodResolver(signUpFormSchema),
     defaultValues: {
@@ -107,12 +119,14 @@ export const SignUpForm = ({ className }: { className?: string }) => {
         password: data.password,
         firstName: data.firstName,
         lastName: data.lastName,
+        role: "admin",
       });
       if (error) {
         toast.error(error.message, { id: "sign-up" });
         return;
       }
       toast.success("Sign Up Successfully!", { id: "sign-up" });
+      refresh();
       router.push("/guarded/dashboard");
     } catch (error) {
       console.error(error);
@@ -145,7 +159,7 @@ export const SignUpForm = ({ className }: { className?: string }) => {
             <FormItem>
               <FormLabel>Password</FormLabel>
               <FormControl>
-                <Input {...field} type="password" autoComplete="new-password" />
+                <PasswordInput {...field} autoComplete="new-password" />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -158,7 +172,7 @@ export const SignUpForm = ({ className }: { className?: string }) => {
             <FormItem>
               <FormLabel>Confirm Password</FormLabel>
               <FormControl>
-                <Input {...field} type="password" autoComplete="new-password" />
+                <PasswordInput {...field} autoComplete="new-password" />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -217,6 +231,7 @@ const logInFormSchema = z.object({
 
 export const LogInForm = ({ className }: { className?: string }) => {
   const router = useRouter();
+  const { refresh } = useAuth();
   const form = useForm<z.infer<typeof logInFormSchema>>({
     resolver: zodResolver(logInFormSchema),
     defaultValues: {
@@ -238,6 +253,7 @@ export const LogInForm = ({ className }: { className?: string }) => {
         return;
       }
       toast.success("Logged In Successfully!", { id: "log-in" });
+      refresh();
       router.push("/guarded/dashboard");
     } catch (error) {
       console.error(error);
@@ -271,11 +287,7 @@ export const LogInForm = ({ className }: { className?: string }) => {
             <FormItem>
               <FormLabel>Password</FormLabel>
               <FormControl>
-                <Input
-                  {...field}
-                  type="password"
-                  autoComplete="current-password"
-                />
+                <PasswordInput {...field} autoComplete="current-password" />
               </FormControl>
               <FormMessage />
             </FormItem>
